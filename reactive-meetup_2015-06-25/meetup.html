@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Presentation for the Reactive Programming Meetup about Immutable Deployments">
+    <meta name="author" content="roland@tritsch.org">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.js-3.1.0/css/reveal.css" />
+    <!-- themes black/white/league/sky/beige/simple/serif/blood/night/moon/solarized -->
+    <link rel="stylesheet" href="../reveal.js-3.1.0/css/theme/simple.css" id="theme" />
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js-3.1.0/lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js-3.1.0/css/print/pdf.css' : '../reveal.js-3.1.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <title>Reactive Programming Meetup - NodeJs on K8s</title>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section id="title">
+	  <h1>Spark on K8s</h1>
+	  <h2></h2>
+	  <h3>(First :)) Reactive Programming Meetup - Dublin - June 2015</h3>
+	  <p>
+	    <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
+	  </p>
+	  <aside class="notes">
+	  </aside>
+	</section>
+	<section id="title">
+	  <h1>NodeJs on K8s</h1>
+	  <h2></h2>
+	  <h3>(First :)) Reactive Programming Meetup - Dublin - June 2015</h3>
+	  <p>
+	    <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
+	  </p>
+	  <aside class="notes">
+	  </aside>
+	</section>
+	<section>
+          <section id="today">
+	    <h2>Today</h2>
+	    <ul>
+	      <li>Reactive programming</li>
+	      <li>Immutable deployments</li>
+	      <li>Google Container Engine (Kubernetes)</li>
+	      <li>NodeJs on K8s</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>About the Roland</h1>
+	    <img src="./images/fujitsu-mvno.jpg" width="600"/>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>About the Roland</h1>
+	    <img src="./images/roland.png" width="400"/>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="reactive">
+	    <h2>Reactive Programming</h1>
+	    <img src="./images/full-reactive.png" width="1000"/>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Reactive Programming</h2>
+	    <ul>
+	      <li>Reactive Programming!!!</li>
+	      <li>Reactive Infrastructure??? - Software Dev Platform (Code, Unit-Test, Code-Review, , Software Deployment Platform (Packaging, System/Load-Test, ...), Runtime (Monitoring, Alarming, Logging, ...), Feedback Platform (A/B test, Performance/Through-put, Was it a good change?, ...)</li>
+	      <li>Reactive Organisations???</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+        </section>
+
+	<section>
+	  <section id="immutable">
+	    <h2>Immutable Deployments</h2>
+	    <img src="./images/rich.jpg" width="400"/>
+	  </section>
+	  <section>
+	    <h2>Immutable Deployments</h2>
+	    <img src="./images/martin.jpg" width="400"/>
+	  </section>
+	  <section>
+	    <h2>Immutable Deployments</h2>
+	    <img src="./images/chad.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Immutable Deployments</h2>
+	    <ul>
+	      <li>Insprired by functional programming concepts (Talk by Rich Hickey)</li>
+	      <li>About Snowflakes and Phonixes</li>
+	      <li>By now ... mainstream! Netflix, Gilt, Zalando, Wunderlist, ...</li>
+	      <li>Works well with MicroServices</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/google.jpg" width="800"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/mesos.png" width="1000" height="400"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/minions.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/kubernetes-key-concepts.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/concepts.png" width="500"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <ul>
+              <li>Concepts: Cluster, Node (master/worker), Pod, Service, ..., Replication Controller, ...</li>
+              <li>GCE vs. Mesos vs. Openstack vs. ... - Resources (CPU, Mem, Disk, Network), Assets (Services, Applications, ...)</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="nodejs">
+	    <h2>NodeJs on k8s</h2>
+	    <ul>
+              <li>Hello, World vs. Hello, Meetup</li>
+              <li>DEMO - Upgrade a running cluster to the next better version of a NodeJs server implementation</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section id="demo">
+	    <h2>NodeJs on k8s - DEMO</h2>
+	    <a href="https://www.youtube.com/embed/kOMHiYRv6FI"><iframe width="600" height="400" src="https://www.youtube.com/embed/kOMHiYRv6FI"></iframe></a>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="resources">
+	    <h2>What to consider?</h2>
+	    <ol>
+              <li>Do not build it yourself!!!</li>
+	      <li>AWS, Google Cloud, RackSpace, Heroku, ...</li>
+	      <li>Bamboo, snap-ci, ...</li>
+	      <li>Netflix, Zalando, Gilt, Etsy, ...</li>
+	    </ol>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section id="questions">
+	    <h2>Questions?</h2>
+	    <img src="./images/questions.jpg" width="250" height="400"/>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../reveal.js-3.1.0/lib/js/head.min.js"></script>
+    <script src="../reveal.js-3.1.0/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style
+        transition: 'convex', // default/none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Parallax background image
+        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+        // Parallax background size
+        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+        // Amount to move parallax background (horizontal and vertical) on slide change
+        // Number, e.g. 100
+        parallaxBackgroundHorizontal: '',
+        parallaxBackgroundVertical: '',
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        // width: 1024,
+        // height: 768,
+
+        // Factor of the display size that should remain empty around the content
+        // margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        // minScale: 0.2,
+        // maxScale: 1.5,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../reveal.js-3.1.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js-3.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js-3.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js-3.1.0/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js-3.1.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js-3.1.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

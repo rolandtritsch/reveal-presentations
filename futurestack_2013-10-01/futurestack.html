@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Presentation for FutureStack">
+    <meta name="author" content="Roland Tritsch">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.js-3.1.0/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js-3.1.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../reveal.js-3.1.0/lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js-3.1.0/css/print/pdf.css' : '../reveal.js-3.1.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <title>Gilt @ FutureStack</title>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <section>
+	  </section>
+	  <section>
+	    <img src="./images/rolling.gif" width="100%" height="100%"/>
+
+	    <aside class="notes">
+	      <p>You can call me a VP Infrastructure Engineering, but my real title is VP of Empowerment and Innovation. Today I am here to talk about a couple of ideas to foster Empowerment and Innovation. One thing is for sure: In a software development organisation, infrastructure done right (the way the infrastructure is build and run and the way the infrastructure organisation interacts with with the rest of the company) has a huge influence on the culture and happiness in the place. It can be a place of fear. Fear that the site is going down when you change something or even when you do not change something, a place with walls and silos and processs and approvals, where change is percieved to be a thread to the stability of the system and therefore needs to be *managed*.</p>
+	      <p>Or imagine a place, where the site is always up and you feel confident about it staying that way regardless what the business is throwing at it. Imaging a place where you feel confident to change the site anytime you want, maybe even multiple times an hour. Imagine a place where you do not have to pick one or the other. Imagine a place where you can have both. This is the place we are building at Gilt. It is a happy place!!! And what you need to make this happen is new thinking and great people and today I am here to talk about some of this thinking and some of the things we have build to support this thinking.</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>Gilt @ FutureStack</h1>
+	    <br>
+	    <h2>Immutable Deployment Platforms and Continous Delivery ...</h2>
+	    <h2>... Friends or Foes?</h2>
+	    <br>
+	    <p>October 2013</p>
+	    <p><a href="mailto:rtritsch@gilt.com">rtritsch@gilt.com</a></p>
+	    <p>VP Infrastructure Engineering</p>
+	    <p><a href="http://twitter.com/innolicity">@innolocity</a> <a href="http://twitter.com/gilttech">@gilttech</a></p>
+	  </section>
+
+	  <section>
+	    <h1>About the Talk</h1>
+	    <br><br><br>
+	    <ul>
+	      <li>Why? - Motivation, Background, History</li>
+	      <li>What? - Architecture</li>
+	      <li>How? - Implementation</li>
+	    </ul>
+	    <aside class="notes">
+	      <p>To make this happen, we are building two things: A continous delivery/deployment platform that we call IonCannnon and an automated HW/SW provisioing platfrom that we call Galactica. Today I am mainly going to talk about Galactica.</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>About Gilt</h1>
+	    <img src="./images/gilt-handbags.png"/>
+	    <aside class="notes">
+	      <p>Gilt is an e-commerce company. Our business model is flash sales. It is outlet shopping on the internet. Every day. On a massive scale.</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>About Gilt</h1>
+	    <img src="./images/gilt-infiniti.png"/>
+	    <aside class="notes">
+	      <p>We buy excess stock/inventory from well-known designer brands and offer them to our members every day at noon (est) at a discounted rate. This is a Labutine Shoe. The *Sex in the City* shoe, because Carry Bradshaw likes them.. They are very popular and normally very expensive. If you have products like this (and we have them (every day!)), all of our 6 million members want them and they all rush in at noon to get them, which immediately creates one of the many, interesting technical challenges we have: Extreme scalability!</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>About Gilt</h1>
+	    <br><br>
+	    <center><table cellspacing="20">
+		<tr><td>6 - Years</td><td>750 - Million</td></tr>
+		<tr><td>150 - Developers</td><td>10 - System Engineers</td></tr>
+		<tr><td>1 - Million</td><td>18 - Minutes</td></tr>
+	    </table></center>
+	  </section>
+
+	  <section>
+	    <h1>About the Spike</h1>
+	    <br>
+	    <img src="./images/spike.png"/>
+	  </section>
+
+	  <section>
+	    <h1>About the Spike</h1>
+	    <br>
+	    <img src="./images/density.gif"/>
+	    <aside class="notes">
+	      <p>Talking about extreme scalability: Right up until noon we have a normal busy site and then ... bang ... at noon the traffic 100 folds within seconds. And while it 100 folds we need to maintain a 99-percentile response time of under 1 sec.</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>About the Trinity</h1>
+	    <img src="./images/trinity.jpg"/>
+	    <aside class="notes">
+	      <p>To build and run the infrastructure that supports this kind of business model, 18 month ago the CIO of Gilt decided to create/build a new function/organisation that we call the trinity. The trinity of Infrastructure Engineering and it combines Tech Ops/Dev Ops and Performance Engineering into one group.</p>
+	    </aside>
+	  </section>
+
+	  <section>
+	    <h1>About the Trinity</h1>
+	    <img src="./images/infra.png"/>
+	  </section>
+
+	  <section>
+	    <h1>About the Mission</h1>
+	    <br>
+	    <h2>Build and run infrastructure ...</h2>
+	    <br>
+	    <p>... that will allow Gilt to deliver on a 100% <font color="red">uptime</font> record ...</p>
+	    <p>... while allow Gilt to <font color="red">innovate</font> at the highest rate possible ...</p>
+	    <p>... and do all of that as <font color="red">cost-effective</font> as possible.</p>
+	    <aside class="notes">
+	      <p>The mission statement is what I call the CAP theorem of Infrastucture Engineering. I call it the CAP theorem, because normally you can only have two out of the three. (Talk about Uptime vs. Innovation (Reducing friction) vs. Cost). Gilt and namely me, want it all. I am/Gilt is on a mission to make this happen<p>
+	    </aside>
+
+	  </section>
+
+	  <section>
+	    <h1>About the Roland</h1>
+	    <img src="./images/dublin.jpg" width="70%" height="70%"/>
+	  </section>
+
+	  <section>
+	    <h1>About the Roland</h1>
+	    <img src="./images/roland.png"/>
+	    <aside class="notes">
+	      <p>My name is Roland and I am not sure, if you have heard/seen it in the news, Jim Carrey thinks I am a wave ..., but that is a different story ... feel free to come and see me afterwards to talk about it</p>
+	    </aside>
+	  </section>
+	</section>
+
+	<section data-background="#007777">
+	  <section>
+	    <h1>Why?</h1>
+	    <br><br><br>
+	    <ul>
+	      <li>Motivation - Innovation! Velocity!</li>
+	      <li>Background - <font color="red"><b>All-Ops & Zero-Waiting!</b></font></li>
+	      <li>History - Immutability!</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h1>Why? - History</h1>
+	    <img src="./images/rich.jpg" width="70%" height="70%"/>
+	  </section>
+
+	  <section>
+	    <h1>Why? - History</h1>
+	    <br><br><br>
+	    <ul>
+	      <li>5 years ago - 20 engs, 20 servers, Ruby on Rails</li>
+	      <li>2 years ago - 150 engs, 150 servers, Java and ... <font color="red"><b>Scala!!!</b></font></li>
+	      <li>1 year ago - Immutable Servers! Galactica!</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h1>Why? - Right now</h1>
+	    <img src="./images/apps-plain.png"/>
+	  </section>
+
+	  <section>
+	    <h1>Why? - Right now</h1>
+	    <img src="./images/apps.png"/>
+	  </section>
+
+	  <section>
+	    <h1>Why? - Right now</h1>
+	    <table>
+	      <tr>
+		<td><img src="./images/docker.png"/></td>
+		<td><img src="./images/vagrant.png"/></td>
+	      </tr>
+	      <tr>
+		<td><img src="./images/cloudstack.png"/></td>
+		<td><img src="./images/openstack.png"/></td>
+	      </tr>
+	      <tr>
+		<td><img src="./images/OpenVZ.png"/></td>
+		<td><img src="./images/kvm.png"/></td>
+	      </tr>
+	    </table>
+	  </section>
+	</section>
+
+	<section data-background="#4d7e65">
+	  <section>
+	    <h1>What?</h1>
+	    <ul>
+	      <li>Gilt Architecture!</li>
+	      <li>Galactica Architecture!</li>
+	      <li>Updating a service!</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <img src="./images/Gilt-Arch.png" width="1920" height="1440"/>
+	  </section>
+
+	  <section>
+	    <img src="./images/Simple-Arch.png" width="1920" height="1440"/>
+	  </section>
+
+	  <section>
+	    <img src="./images/UpgradeSW.png" width="1920" height="1440"/>
+	  </section>
+
+	  <section>
+	    <img src="./images/cli.png" width="1920" height="1440"/>
+	  </section>
+	</section>
+
+	<section data-background="#8c4738">
+	  <section>
+	    <h1>How?</h1>
+	    <img src="./images/FeedbackLoop.png" width="80%" height="80%"/>
+	  </section>
+
+	  <section>
+	    <h1>How?</h1>
+	    <img src="./images/FeedbackLoop-NewRelic.png" width="80%" height="80%"/>
+	  </section>
+	</section>
+
+	<section>
+	  <h1>Wrap-up</h1>
+	  <h2>Gilt is investing to build ...</h2>
+	  <ul>
+	    <li>... a continous delivery/deployment platform and ...</li>
+	    <li>... an immutable HW/SW-provisioning platform and ...</li>
+	    <li>... continous analysis capabilities to continously assess the results of the deployments.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h1>Thank you ...</h1>
+        </section>
+
+	<section>
+	  <h1>... Questions?</h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="../reveal.js-3.1.0/lib/js/head.min.js"></script>
+    <script src="../reveal.js-3.1.0/js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+      // Display controls in the bottom right corner
+      controls: true,
+
+      // Display a presentation progress bar
+      progress: true,
+
+      // Push each slide change to the browser history
+      history: false,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+      // Enable touch events for navigation
+      touch: true,
+
+      // Enable the slide overview mode
+      overview: true,
+
+      // Vertical centering of slides
+      center: true,
+
+      // Loop the presentation
+      loop: false,
+
+      // Change the presentation direction to be RTL
+      rtl: false,
+
+      // Number of milliseconds between automatically proceeding to the
+      // next slide, disabled when set to 0, this value can be overwritten
+      // by using a data-autoslide attribute on your slides
+      autoSlide: 0,
+
+      // Enable slide navigation via mouse wheel
+      mouseWheel: false,
+
+      // Transition style
+      transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Transition speed
+      transitionSpeed: 'fast', // default/fast/slow
+
+      // Transition style for full page backgrounds
+      backgroundTransition: 'linear', // default/linear/none
+
+      // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      // transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+      // The "normal" size of the presentation, aspect ratio will be preserved
+      // when the presentation is scaled to fit different resolutions. Can be
+      // specified using percentage units.
+      // width: 960,
+      // height: 700,
+
+      // Factor of the display size that should remain empty around the content
+      // margin: 0.1,
+
+      // Bounds for smallest/largest possible scale to apply to content
+      // minScale: 0.2,
+      // maxScale: 1.0,
+
+      keyboard: {
+      37: 'prev',
+      39: 'next',
+      // 37: ..., // do something with the left key
+      // 39: ..., // do something with the right key
+      // 13: 'next', // go to the next slide when the ENTER key is pressed
+      // 27: function() {}, // do something custom when ESC is pressed
+      32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+      },
+
+      dependencies: [
+        { src: '../reveal.js-3.1.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal.js-3.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../reveal.js-3.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../reveal.js-3.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal.js-3.1.0/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal.js-3.1.0/plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
