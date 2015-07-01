@@ -1,2 +1,1 @@
-# reveal-presentations
-My reveal.js presentations
+# My reveal.js presentations
