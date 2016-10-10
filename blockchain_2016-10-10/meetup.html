@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Presentation about the fundamentals of the blockchain technology and its relevance to document management and document productivity">
+    <meta name="author" content="roland@tritsch.org">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css" />
+    <!-- themes black/white/league/sky/beige/simple/serif/blood/night/moon/solarized -->
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme" />
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <title>Blockchain Technology and Document Management - Friends or Foes?</title>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section id="title">
+	  <h1>Blockchain Technology and Document Management - Friends or Foes?</h1>
+	  <p>
+	    <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
+	  </p>
+	  <aside class="notes">
+	    <ul>
+	      <li>Did this (or a very similar) talk a couple of weeks ago in Dublin</li>
+	      <li>Right now 80% of my skills development is focused on Functional Programming, Machine Learning and Blockchain Technologies</li>
+	      <li>I am in a weight loss race with my friend Hermann and the delta needs to be payed in BitCoins</li>
+	    </ul>
+	  </aside>
+	</section>
+	<section>
+          <section id="today">
+	    <h2>Today</h2>
+	    <ul>
+	      <li>Blockchain 101</li>
+	      <li>Crypto Currencies 101</li>
+	      <li>Document Management (using Blockchains) 101</li>
+	    </ul>
+	    <aside class="notes">
+	      <ul>
+		<li>Who has used a blockchain before?</li>
+		<li>Who owns any kind of crypto currencies?</li>
+		<li>Make no mistake ... Blockchain Technology and its applications will have a significant impact on you personally (at least equal to the impact of ML/NLP) and on the planet in general</li>
+		<li>We have the internet of information. It is an equalizer. A globalizer. And it makes this world a fairer place to live in,, because everybody got access to it. Now imagine we can do the same thing with money and value. The internet of value. And no bank or goverment can deny you access to it.</li>
+	      </ul>
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="blockchain">
+	    <h2>In the beginning ...</h2>
+	    <img src="./images/cover.png"/>
+	    <aside class="notes">
+	      <ul>
+		<li>... there was light :)</li>
+		<li>... or maybe just a whitepaper by Satoshi Nakamoto</li>
+		<li>Fun fact: Nobody knows who he is ... but ... he owns 1 millon bitcoins. How much is a bitcoin?</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>What is the problem?</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>Identity and double-spending</li>
+		<li>Best explained with transfering real money ... 1 dollar ... from me to you</li>
+		<li>Doing this on a large scale with "virtual" or "electronic" money requires an intermediary</li>
+		<li>These intermediaries end up with a lot of power (and charge a lot, but ... not really)</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>How is blockchain technology solving the problems?</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>Easy and not really</li>
+		<li>Easy ... by using private/public key pairs to establish identity</li>
+		<li>Not really ... because the blockchain does not really prevent double-spending, but gurantees that it will get detected and that exacly one spend will be selected to be the correct/true one</li>
+		<li>Blockchain technology is a tool of distributed consensus (identity, ownership (of a thing), establishing facts)</li>
+		<li>A blockchain is a globally shared, distributed, transactional database</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Concepts - Transaction</h2>
+	    <img src="./images/transaction.png"/>
+	    <aside class="notes">
+	      <ul>
+		<li>Transfering *ownership* of something from somebody to somebody else</li>
+		<li>Create a transaction. Sign it with your private key. TODO: think this through</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Concepts - Blocks & Blockchains</h2>
+	    <img src="./images/blocks.png"/>
+	    <aside class="notes">
+	      <ul>
+		<li>???</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Concepts - Distributed Ledger</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>Blockchains are viewed/talked about as globally, distributed ledgers</li>
+		<li>And they are ... and they are not, because ... to build a ledger (a list of accounts and balances you actually have to travers the entire list of transactions (backwards)</li>
+		<li>This is what actually happens when you transfer money. That is what the miners are doing when they build a block. They go backwards until they find enough money to put your transaction into the block and then they solve the block</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Lets try to break it ...</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>How can I become somebody else?</li>
+		<li>How can I spend something twice?</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Hype, Benefits, Reality, Critisisms, ...</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>Equalizer, ... or not ...</li>
+		<li>Cheap, ... or not ... </li>
+		<li>Proove of work vs. proove of stake</li>
+	      </ul>
+	    </aside>
+	  </section>
+        </section>
+
+	<section>
+	  <section id="crypto">
+	    <h2>Disclaimer</h2>
+	    <img src="./images/bitcoin.png"/>
+	    <aside class="notes">
+	      <ul>
+		<li>Just an application/implementation of a blockchain "database"</li>
+		<li>Lots of them. Famous ones are BitCoin, Ether, ... lots of others</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Currencies</h2>
+	    <a href="https://coinmarketcap.com/all/views/all/"><img src="./images/crypto.png"/></a>
+	    <aside class="notes">
+	      <ul>
+		<li>Just an application/implementation of a blockchain "database"</li>
+		<li>Lots of them. Famous ones are BitCoin, Ether, ... lots of others (719)</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>What do you need?</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>Bitcoin Wallet, ... Hosted, local, ...</li>
+		<li>Bitcoin Mining, ...</li>
+		<li>Making a transaction ...</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Immutable Deployments</h2>
+	    <img src="./images/chad.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Immutable Deployments</h2>
+	    <ul>
+	      <li>Insprired by functional programming concepts (Talk by Rich Hickey)</li>
+	      <li>About Snowflakes and Phonixes</li>
+	      <li>By now ... mainstream! Netflix, Gilt, Zalando, Wunderlist, ...</li>
+	      <li>Works well with MicroServices</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="document">
+	    <h2>Ethereum</h2>
+	    <aside class="notes">
+	      <ul>
+		<li>BitCoin on steroids</li>
+		<li>Main change ... adds the concept of a contract</li>
+		<li>Means you can send a transaction to a person or a contract</li>
+		<li>Contracts are snippets of code who can run a transaction (type). Contracts define new transaction types</li>
+		<li>Solves a couple of other problems ... e.g. Proove-of-Work vs. Proove-of-Stake</li>
+		<li>These apps run on a custom built blockchain, an enormously powerful shared global infrastructure that can move value around and represent the ownership of property</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Code :)</h2>
+	    <aside class="notes">
+	      <ul>
+		<li></li>
+		<li>Main change ... adds the concept of a contract</li>
+		<li>Means you can send a transaction to a person or a contract</li>
+		<li>Contracts are snippets of code who can run a transaction (type). Contracts define new transaction types</li>
+		<li>Solves a couple of other problems ... e.g. Proove-of-Work vs. Proove-of-Stake</li>
+	      </ul>
+	    </aside>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/minions.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/kubernetes-key-concepts.png" width="600"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <img src="./images/concepts.png" width="500"/>
+	  </section>
+	  <section>
+	    <h2>Google Container Engine (Kubernetes)</h2>
+	    <ul>
+              <li>Concepts: Cluster, Node (master/worker), Pod, Service, ..., Replication Controller, ...</li>
+              <li>GCE vs. Mesos vs. Openstack vs. ... - Resources (CPU, Mem, Disk, Network), Assets (Services, Applications, ...)</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="wrap">
+	    <h2>NodeJs on k8s</h2>
+	    <ul>
+              <li>Hello, World vs. Hello, Meetup</li>
+              <li>DEMO - Upgrade a running cluster to the next better version of a NodeJs server implementation</li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section id="demo">
+	    <h2>NodeJs on k8s - DEMO</h2>
+	    <a href="https://www.youtube.com/embed/kOMHiYRv6FI"><iframe width="600" height="400" src="https://www.youtube.com/embed/kOMHiYRv6FI"></iframe></a>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	  <section id="questions">
+	    <h2>Questions?</h2>
+	    <img src="./images/questions.jpg" width="250" height="400"/>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+	</section>
+
+	<section>
+	  <section id="resources">
+	    <h2>What to read/watch?</h2>
+	    <ul>
+              <li><a href="http://www.i-cio.com/big-thinkers/don-tapscott/item/from-the-internet-of-information-to-the-internet-of-value">Don Tapscott - From the internet of information to the internet of value</a></li>
+	      <li><a href="https://www.youtube.com/watch?v=0ilYnuP1qd4">Joseph Lubin - The Basics of Blockchain and Etherum</a></li>
+	      <li></li>
+	    </ul>
+	    <aside class="notes">
+	    </aside>
+	  </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style
+        transition: 'convex', // default/none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Parallax background image
+        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+        // Parallax background size
+        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+        // Amount to move parallax background (horizontal and vertical) on slide change
+        // Number, e.g. 100
+        parallaxBackgroundHorizontal: '',
+        parallaxBackgroundVertical: '',
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        // width: 1024,
+        // height: 768,
+
+        // Factor of the display size that should remain empty around the content
+        // margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        // minScale: 0.2,
+        // maxScale: 1.5,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
