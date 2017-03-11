@@ -29,12 +29,12 @@
 
     <style>
       .flex-container {
-        display: -webkit-flex;
-        display: flex;
+      display: -webkit-flex;
+      display: flex;
       }
 
       .flex-item {
-        margin: 50px;
+      margin: 50px;
       }
     </style>
 
@@ -44,69 +44,69 @@
   <body>
     <div class="reveal">
       <div class="slides">
-	<section>
-	  <section id="title">
-	    <h2>TCD Functional Programming</h2>
-	    <h3>Scala Module</h3>
-	    <h3>December 2016</h3>
-      <h3>http://trits.ch/tcd-2016</h3>
-	    <p>
-	      <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
-	    </p>
-	    <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
-	<section>
+	      <section>
+	        <section id="title">
+	          <h2>TCD Functional Programming</h2>
+	          <h3>Scala Module</h3>
+	          <h3>December 2016</h3>
+            <h3>http://trits.ch/tcd-2016</h3>
+	          <p>
+	            <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
+	          </p>
+	          <aside class="notes">
+	          </aside>
+	        </section>
+	      </section>
+	      <section>
           <section id="intro">
-	    <h2>Roland</h2>
-	    <div class="flex-container">
+	          <h2>Roland</h2>
+	          <div class="flex-container">
               <div class="flex-item">
-		<ul>
-		  <li>Degree in Computer Science (Software Engineering), FH Darmstadt</li>
-		  <li>Languages: Pascal, C++, Eiffel, Java, Clojure, Scala, Go, ...</li>
-		  <li>Databases: Ingres, ObjectStore, Versant, Postgres, Voldemort, MungoDB, ...</li>
-		  <li>Distributed Systems: IDL/IIOP, WSDL/SOAP, REST/JSON, ...</li>
-		  <li>Companies: EDS, ObjectDesign, Versant, IONA, Gilt, Nitro, ...</li>
-		  <!--<li>On the Tech Advisory Board @ <a href="https://scala.epfl.ch">The Scala Center</a></li>-->
-		</ul>
-	      </div>
-	      <div class="flex-item" style="padding: 100px 0;">
-	        <a href="http://www.tritsch.org" target="_blank"><img src="http://www.tritsch.org/images/recumbent.jpg" width="600"/></a>
-	      </div>
-	    </div>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+		            <ul>
+		              <li>Degree in Computer Science (Software Engineering), FH Darmstadt</li>
+		              <li>Languages: Pascal, C++, Eiffel, Java, Clojure, Scala, Go, ...</li>
+		              <li>Databases: Ingres, ObjectStore, Versant, Postgres, Voldemort, MungoDB, ...</li>
+		              <li>Distributed Systems: IDL/IIOP, WSDL/SOAP, REST/JSON, ...</li>
+		              <li>Companies: EDS, ObjectDesign, Versant, IONA, Gilt, Nitro, ...</li>
+		              <!--<li>On the Tech Advisory Board @ <a href="https://scala.epfl.ch">The Scala Center</a></li>-->
+		            </ul>
+	            </div>
+	            <div class="flex-item" style="padding: 100px 0;">
+	              <a href="http://www.tritsch.org" target="_blank"><img src="http://www.tritsch.org/images/recumbent.jpg" width="600"/></a>
+	            </div>
+	          </div>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section id="today">
-	    <h2>Today</h2>
-	    <ul>
-	      <li>Not an introduction to Functional Programming :)</li>
-	      <li>Scala vs. Scalaz vs. Cats</li>
+	          <h2>Today</h2>
+	          <ul>
+	            <li>Not an introduction to Functional Programming :)</li>
+	            <li>Scala vs. Scalaz vs. Cats</li>
               <li>Scala vs. Haskell vs. Clojure vs. ...</li>
-	    </ul>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          </ul>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section id="why">
-	    <h2>Why Scala?</h2>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          <h2>Why Scala?</h2>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section id="why">
-	    <h2>Why Scala?</h2>
-	    <a href="http://www.indeed.com/jobtrends/q-java-q-Scala.html?relative=1" target="_blank"><img src="./images/jobs.png" width="600"/></a>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          <h2>Why Scala?</h2>
+	          <a href="http://www.indeed.com/jobtrends/q-java-q-Scala.html?relative=1" target="_blank"><img src="./images/jobs.png" width="600"/></a>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section>
-	    <h2>Why Scala?</h2>
-	    <a href="https://www.scala-lang.org" target="_blank"><img src="./images/scala.png" width="1000"/></a>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          <h2>Why Scala?</h2>
+	          <a href="https://www.scala-lang.org" target="_blank"><img src="./images/scala.png" width="1000"/></a>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section>
-	    <h2>Why Scala?</h2>
+	          <h2>Why Scala?</h2>
             <p>Scala for Java Programmers<br>vs.<br>Scala for Haskell Programmers</p>
             <ul>
               <li>Immutability (Datastructures, Objects, ...)</li>
@@ -114,131 +114,131 @@
               <li>Java interoperability (the good, the bad, the ugly)</li>
               <li>Learning curve (for Java Programmers)</li>
             </ul>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          <aside class="notes">
+	          </aside>
+	        </section>
           <section>
-	    <h2>Today - Scala!</h2>
-	    <ul>
-	      <li>Data Types, Data Structures, Collections, ... (15 mins)</li>
-	      <li>Control Structures, ... (15 mins)</li>
-	      <li>Functions, Compositions, ... (15 mins)</li>
+	          <h2>Today - Scala!</h2>
+	          <ul>
+	            <li>Data Types, Data Structures, Collections, ... (15 mins)</li>
+	            <li>Control Structures, ... (15 mins)</li>
+	            <li>Functions, Compositions, ... (15 mins)</li>
               <li>Java interoperability, ... (15 mins)</li>
               <li>Fibonacci, Josephus Problem, ... (30 mins)</li>
-	    </ul>
-	    <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </ul>
+	          <aside class="notes">
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="hello">
-	    <h2>Fiddle</h2>
+	          <h2>Fiddle</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=qQ7Rmfh/2"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Fiddle - Done</h2>
+	          <h2>Fiddle - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=qQ7Rmfh/3"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="data">
-	    <h2>Data</h2>
+	          <h2>Data</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=SjlNlux/1"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Data - Done</h2>
+	          <h2>Data - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=SjlNlux/3"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="control">
-	    <h2>Control</h2>
+	          <h2>Control</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=mld2ggg/3"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Control - Done</h2>
+	          <h2>Control - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=mld2ggg/2"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="function">
-	    <h2>Function</h2>
+	          <h2>Function</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=GxLAfBP/2"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Function - Done</h2>
+	          <h2>Function - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=GxLAfBP/1"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="fibonacci">
-	    <h2>Fibonacci</h2>
-	    <a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank"><img src="./images/fibonacci.png" width="600"/></a>
+	          <h2>Fibonacci</h2>
+	          <a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank"><img src="./images/fibonacci.png" width="600"/></a>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Fibonacci</h2>
+	          <h2>Fibonacci</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=RYuLcoA/6"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Fibonacci - Done</h2>
+	          <h2>Fibonacci - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=RYuLcoA/5"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
+	      <section>
           <section id="josephus">
-	    <h2>Josephus</h2>
+	          <h2>Josephus</h2>
             <p style="font-size: 80%;">People are standing in a circle waiting to be executed. Counting begins at a specified point in the circle and proceeds around the circle in a specified direction. After a specified number of people are skipped, the next person is executed. The procedure is repeated with the remaining people, starting with the next person, going in the same direction and skipping the same number of people, until only one person remains, and is freed.
               <br>
-The problem — given the number of people, starting point, direction, and number to be skipped — is to choose the position in the initial circle to avoid execution.</p>
-	    <a href="https://en.wikipedia.org/wiki/Josephus_problem" target="_blank"><img src="./images/josephus.png" width="800"/></a>
+              The problem — given the number of people, starting point, direction, and number to be skipped — is to choose the position in the initial circle to avoid execution.</p>
+	          <a href="https://en.wikipedia.org/wiki/Josephus_problem" target="_blank"><img src="./images/josephus.png" width="800"/></a>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section id="josephus">
-	    <h2>Josephus</h2>
+	          <h2>Josephus</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=B6dTcay/2"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
+	          </aside>
+	        </section>
           <section>
-	    <h2>Josephus - Done</h2>
+	          <h2>Josephus - Done</h2>
             <iframe height="500" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=B6dTcay/1"></iframe>
             <aside class="notes">
-	    </aside>
-	  </section>
-	</section>
+	          </aside>
+	        </section>
+	      </section>
 
-	<section>
-	  <section id="wrapup">
-	    <h2>AMA</h2>
+	      <section>
+	        <section id="wrapup">
+	          <h2>AMA</h2>
             <ul>
               <li>Scala</li>
               <li>Career, Jobs, Money, ...</li>
@@ -246,21 +246,21 @@ The problem — given the number of people, starting point, direction, and numbe
               <li>Software Engineering, Machine Learning, Blockchain Technology, ...</li>
               <li>???</li>
             </ul>
-	    <aside class="notes">
-	    </aside>
-	  </section>
-	  <section>
-	    <h2>Resources</h2>
-	    <ul>
+	          <aside class="notes">
+	          </aside>
+	        </section>
+	        <section>
+	          <h2>Resources</h2>
+	          <ul>
               <li>https://www.scala-lang.org</li>
               <li>https://scalafiddle.io</li>
               <li><a href="http://aperiodic.net/phil/scala/s-99/">99 Scala Problems</a></li>
               <li><a href="http://horstmann.com/scala/">Scala for the impatient</a></li>
               <li><a href="https://www.coursera.org/specializations/scala">Functional Programming Principles in Scala</a></li>
-	    </ul>
-	    <aside class="notes">
-	    </aside>
-	  </section>
+	          </ul>
+	          <aside class="notes">
+	          </aside>
+	        </section>
         </section>
       </div>
     </div>
@@ -272,109 +272,109 @@ The problem — given the number of people, starting point, direction, and numbe
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Display controls in the bottom right corner
-        controls: true,
+      // Display controls in the bottom right corner
+      controls: true,
 
-        // Display a presentation progress bar
-        progress: true,
+      // Display a presentation progress bar
+      progress: true,
 
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
+      // Display the page number of the current slide
+      slideNumber: 'c/t',
 
-        // Push each slide change to the browser history
-        history: false,
+      // Push each slide change to the browser history
+      history: false,
 
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
 
-        // Enable the slide overview mode
-        overview: true,
+      // Enable the slide overview mode
+      overview: true,
 
-        // Vertical centering of slides
-        center: true,
+      // Vertical centering of slides
+      center: true,
 
-        // Enables touch navigation on devices with touch input
-        touch: true,
+      // Enables touch navigation on devices with touch input
+      touch: true,
 
-        // Loop the presentation
-        loop: false,
+      // Loop the presentation
+      loop: false,
 
-        // Change the presentation direction to be RTL
-        rtl: false,
+      // Change the presentation direction to be RTL
+      rtl: false,
 
-        // Turns fragments on and off globally
-        fragments: true,
+      // Turns fragments on and off globally
+      fragments: true,
 
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
+      // Flags if the presentation is running in an embedded mode,
+      // i.e. contained within a limited portion of the screen
+      embedded: false,
 
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
+      // Flags if we should show a help overlay when the questionmark
+      // key is pressed
+      help: true,
 
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
+      // Number of milliseconds between automatically proceeding to the
+      // next slide, disabled when set to 0, this value can be overwritten
+      // by using a data-autoslide attribute on your slides
+      autoSlide: 0,
 
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
+      // Stop auto-sliding after user input
+      autoSlideStoppable: true,
 
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
+      // Enable slide navigation via mouse wheel
+      mouseWheel: false,
 
-        // Hides the address bar on mobile devices
-        hideAddressBar: true,
+      // Hides the address bar on mobile devices
+      hideAddressBar: true,
 
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
+      // Opens links in an iframe preview overlay
+      previewLinks: false,
 
-        // Transition style
-        transition: 'convex', // default/none/fade/slide/convex/concave/zoom
+      // Transition style
+      transition: 'convex', // default/none/fade/slide/convex/concave/zoom
 
-        // Transition speed
-        transitionSpeed: 'default', // default/fast/slow
+      // Transition speed
+      transitionSpeed: 'default', // default/fast/slow
 
-        // Transition style for full page slide backgrounds
-        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+      // Transition style for full page slide backgrounds
+      backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
 
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
+      // Number of slides away from the current that are visible
+      viewDistance: 3,
 
-        // Parallax background image
-        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+      // Parallax background image
+      parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 
-        // Parallax background size
-        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+      // Parallax background size
+      parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
 
-        // Amount to move parallax background (horizontal and vertical) on slide change
-        // Number, e.g. 100
-        parallaxBackgroundHorizontal: '',
-        parallaxBackgroundVertical: '',
+      // Amount to move parallax background (horizontal and vertical) on slide change
+      // Number, e.g. 100
+      parallaxBackgroundHorizontal: '',
+      parallaxBackgroundVertical: '',
 
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        // width: 1024,
-        // height: 768,
+      // The "normal" size of the presentation, aspect ratio will be preserved
+      // when the presentation is scaled to fit different resolutions. Can be
+      // specified using percentage units.
+      // width: 1024,
+      // height: 768,
 
-        // Factor of the display size that should remain empty around the content
-        // margin: 0.1,
+      // Factor of the display size that should remain empty around the content
+      // margin: 0.1,
 
-        // Bounds for smallest/largest possible scale to apply to content
-        // minScale: 0.2,
-        // maxScale: 1.5,
+      // Bounds for smallest/largest possible scale to apply to content
+      // minScale: 0.2,
+      // maxScale: 1.5,
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: '../reveal.js/plugin/notes/notes.js', async: true }
-        ]
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../reveal.js/plugin/notes/notes.js', async: true }
+      ]
       });
     </script>
   </body>
